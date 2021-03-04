@@ -1,28 +1,34 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+      <validate-component name="1">
+          <some-component>
+              <div>
+                  <validate-component name="2"></validate-component>
+              </div>
+          </some-component>
+          <some-component>
+              <validate-component  name="3">
+                  <validate-component  name="4" />
+              </validate-component>
+          </some-component>
+          <validate-component name="5"></validate-component>
+      </validate-component>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import ValidateComponent from './components/Validate.vue'
+import SomeComponent from './components/Some.vue'
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+      ValidateComponent,
+      SomeComponent,
   }
 }
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+
 </style>
